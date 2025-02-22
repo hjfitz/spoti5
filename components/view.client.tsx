@@ -5,14 +5,20 @@ import { fetchListened } from '@/actions/fetch-listened'
 import ArtistList from '@/app/components/ArtistList'
 import TrackList from '@/app/components/TrackList'
 import { ListenedTerm, TopListenedResult } from '@/types/spotify'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useFormState } from 'react-dom'
+import { useRouter } from "next/navigation"
 
 type TopViewProps = TopListenedResult
 
 export const TopView = ({ tracks, artists }: TopViewProps) => {
 	const [timeRange, setTimeRange] = useState<ListenedTerm>(ListenedTerm.MEDIUM)
 	const [topListened, formAction, isPending] = useFormState(fetchListened, { tracks, artists })
+
+	const router = useRouter()
+	useEffect(() => {
+		router.replace('/')
+	}, [router])
 
 	return (
 		<>
