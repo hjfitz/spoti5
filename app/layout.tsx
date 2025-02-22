@@ -14,7 +14,7 @@ const geistMono = localFont({
 	weight: "100 900",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
 	title: "Your Spotify Vibe - Discover Your Top Tracks & Artists",
 	description:
 		"Explore your most listened-to tracks and artists on Spotify. Get personalized insights into your music taste over the last 4 weeks, 6 months, or 12 months!",
@@ -62,7 +62,7 @@ type RootLayoutProps = {
 	children: React.ReactNode;
 }
 
-const RootLayout = ({children}: RootLayoutProps) => {
+const RootLayout = ({ children }: RootLayoutProps) => {
 	return (
 		<html lang="en">
 			<Head>

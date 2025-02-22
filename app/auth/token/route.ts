@@ -6,7 +6,7 @@ import { redirect } from 'next/navigation'
 import { RequestFailureDTO, RequestSuccessDTO } from '@/types/spotify'
 import { config } from '@/lib/config'
 
-function isSuccessfulResponse(response: any): response is RequestSuccessDTO {
+function isSuccessfulResponse(response: RequestSuccessDTO | RequestFailureDTO): response is RequestSuccessDTO {
 	return 'access_token' in response
 }
 
