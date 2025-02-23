@@ -1,8 +1,8 @@
 import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
 import { SpotifyApi } from '@/lib/spotify.api'
 import { ListenedTerm } from '@/types/spotify'
 import { TopView } from '@/components/view.client'
+import LoginPage from '@/components/login'
 
 import "./globals.css"
 
@@ -10,7 +10,7 @@ const SpotifyTopListenedPage = async () => {
 	const cookieStore = await cookies()
 	const tokenCookie = cookieStore.get('token')
 	if (!tokenCookie) {
-		redirect('/auth/login')
+		return <LoginPage />
 	}
 
 	const api = new SpotifyApi(tokenCookie.value)

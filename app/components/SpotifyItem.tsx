@@ -1,15 +1,15 @@
 //import Image from "next/image"
 
-interface SpotifyItemProps {
+type SpotifyItemProps = {
 	name: string
 	imageUrl?: string
 	artist?: string
 	album?: string
 }
 
-export default function SpotifyItem({ name, imageUrl, artist, album }: SpotifyItemProps) {
+export const SpotifyItem = ({ name, imageUrl, artist, album }: SpotifyItemProps) => {
 	return (
-		<div className="flex items-center space-x-4 p-2 rounded-md transition-all duration-300 hover:bg-white/40">
+		<div className="rounded flex items-center space-x-4 p-2 rounded-md transition-all duration-300 hover:bg-white/40">
 			{/*<Image src={imageUrl || "/placeholder.svg"} alt={name} width={48} height={48} className="rounded-md shadow-sm" />*/}
 			<img src={imageUrl || "/placeholder.svg"} alt={name} width={48} height={48} className="rounded-md shadow-sm" />
 			<div className="text-gray-800">

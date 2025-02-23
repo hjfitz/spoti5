@@ -2,8 +2,8 @@
 
 import { Button } from "@/components/ui/button"
 import { fetchListened } from '@/actions/fetch-listened'
-import ArtistList from '@/app/components/ArtistList'
-import TrackList from '@/app/components/TrackList'
+import { ArtistList } from '@/app/components/ArtistList'
+import { TrackList } from '@/app/components/TrackList'
 import { ListenedTerm, TopListenedResult } from '@/types/spotify'
 import { useEffect, useState } from 'react'
 import { useFormState } from 'react-dom'
@@ -25,33 +25,33 @@ export const TopView = ({ tracks, artists }: TopViewProps) => {
 			<h1 className="text-6xl font-bold mb-8 text-white drop-shadow-lg">Your Spotify Vibe</h1>
 			<div className="flex justify-start space-x-4 mb-8">
 				<form action={formAction}>
-					<input hidden value={ListenedTerm.SHORT} name="listened_term" />
+					<input readOnly hidden value={ListenedTerm.SHORT} name="listened_term" />
 					<Button
 						variant={timeRange === ListenedTerm.SHORT ? "default" : "outline"}
 						onClick={() => setTimeRange(ListenedTerm.SHORT)}
-						className="bg-white/20 text-white border-white/30 hover:bg-white/30 hover:text-white"
+						className="rounded bg-white/20 text-white border-white/30 hover:bg-white/30 hover:text-white"
 					>
 						4 Weeks
 					</Button>
 				</form>
 
 				<form action={formAction}>
-					<input hidden value={ListenedTerm.MEDIUM} name="listened_term" />
+					<input hidden readOnly value={ListenedTerm.MEDIUM} name="listened_term" />
 					<Button
 						variant={timeRange === ListenedTerm.MEDIUM ? "default" : "outline"}
 						onClick={() => setTimeRange(ListenedTerm.MEDIUM)}
-						className="bg-white/20 text-white border-white/30 hover:bg-white/30 hover:text-white"
+						className="rounded bg-white/20 text-white border-white/30 hover:bg-white/30 hover:text-white"
 					>
 						6 Months
 					</Button>
 				</form>
 
 				<form action={formAction}>
-					<input hidden value={ListenedTerm.LONG} name="listened_term" />
+					<input hidden readOnly value={ListenedTerm.LONG} name="listened_term" />
 					<Button
 						variant={timeRange === ListenedTerm.LONG ? "default" : "outline"}
 						onClick={() => setTimeRange(ListenedTerm.LONG)}
-						className="bg-white/20 text-white border-white/30 hover:bg-white/30 hover:text-white"
+						className="rounded bg-white/20 text-white border-white/30 hover:bg-white/30 hover:text-white"
 					>
 						12 Months
 					</Button>
