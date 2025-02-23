@@ -71,7 +71,12 @@ const RootLayout = ({ children }: RootLayoutProps) => {
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				{children}
+				<div className="min-h-screen bg-gray-100 text-gray-900 relative">
+					<div className="animated-gradient-header fixed" />
+					<div className="container mx-auto px-4 relative z-10">
+						{children}
+					</div>
+				</div>
 			</body>
 		</html>
 	);

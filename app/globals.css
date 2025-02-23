@@ -10,7 +10,7 @@
   background: linear-gradient(135deg, #6366f1 0%, #a855f7 25%, #ec4899 50%, #f97316 75%, #eab308 100%);
   background-size: 400% 400%;
   animation: gradientAnimation 15s ease infinite;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+  /*clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);*/
 }
 
 @keyframes gradientAnimation {

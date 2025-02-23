@@ -21,7 +21,7 @@ export const TopView = ({ tracks, artists }: TopViewProps) => {
 	}, [router])
 
 	return (
-		<>
+		<main className="py-16">
 			<h1 className="text-6xl font-bold mb-8 text-white drop-shadow-lg">Your Spotify Vibe</h1>
 			<div className="flex justify-start space-x-4 mb-8">
 				<form action={formAction}>
@@ -66,7 +66,6 @@ export const TopView = ({ tracks, artists }: TopViewProps) => {
 					<ArtistList artists={topListened.artists} />
 				</div>
 			)}
-		</>
-
+		</main>
 	)
 }

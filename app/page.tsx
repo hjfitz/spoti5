@@ -17,14 +17,7 @@ const SpotifyTopListenedPage = async () => {
 
 	const { tracks, artists } = await api.getTopForTerm(ListenedTerm.MEDIUM)
 
-	return (
-		<div className="min-h-screen bg-gray-100 text-gray-900 relative">
-			<div className="animated-gradient-header fixed"></div>
-			<div className="container mx-auto px-4 py-16 relative z-10">
-				<TopView tracks={tracks} artists={artists} />
-			</div>
-		</div>
-	)
+	return <TopView tracks={tracks} artists={artists} />
 }
 
 

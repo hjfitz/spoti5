@@ -13,20 +13,11 @@ function isSuccessfulResponse(response: RequestSuccessDTO | RequestFailureDTO): 
 export async function GET(req: NextRequest) {
 	const params = req.nextUrl.searchParams
 	const code = params.get('code')
-	const state = params.get('state')
 
-	if (!code || !state) {
+	if (!code) {
 		return new Response('Unable to authenticate', { status: 500 })
 	}
-
 	const cookieStore = cookies()
-	cookieStore.set('state', '')
-
-	const initialState = req.cookies.get('state')?.value
-
-	if (state !== initialState) {
-		return new Response('Invalid state', { status: 500 })
-	}
 
 	const {
 		clientId,
