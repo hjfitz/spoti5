@@ -57,5 +57,5 @@ export async function GET(req: NextRequest) {
 		expires: new Date(Date.now() + data.expires_in * 1000),
 	})
 
-	redirect('/')
+	redirect('/term/medium')
 }

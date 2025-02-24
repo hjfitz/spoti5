@@ -3,12 +3,14 @@ import type {
 	Artist,
 	ListenedTerm,
 	TopArtistsDTO,
+	TopListenedResult,
 	TopTracksDTO,
 	Track,
 } from '@/types/spotify'
 
 export class SpotifyApi {
 	private readonly axios: AxiosInstance
+
 	constructor(accessToken: string) {
 		this.axios = axios.create({
 			headers: {
@@ -18,7 +20,7 @@ export class SpotifyApi {
 		})
 	}
 
-	public async getTopArtists(term: ListenedTerm): Promise<Artist[]> {
+	private async getTopArtists(term: ListenedTerm): Promise<Artist[]> {
 		const resp = await this.axios.get<TopArtistsDTO>(
 			`/me/top/artists?time_range=${term}&limit=5`,
 		)
@@ -31,7 +33,7 @@ export class SpotifyApi {
 		}))
 	}
 
-	public async getTopTracks(term: ListenedTerm): Promise<Track[]> {
+	private async getTopTracks(term: ListenedTerm): Promise<Track[]> {
 		const resp = await this.axios.get<TopTracksDTO>(
 			`/me/top/tracks?time_range=${term}&limit=5`,
 		)
@@ -47,7 +49,7 @@ export class SpotifyApi {
 		}))
 	}
 
-	public async getTopForTerm(term: ListenedTerm): Promise<{ tracks: Track[], artists: Artist[] }> {
+	public async getTopForTerm(term: ListenedTerm): Promise<TopListenedResult> {
 		const [tracks, artists] = await Promise.all([
 			this.getTopTracks(term),
 			this.getTopArtists(term),

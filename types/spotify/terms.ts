@@ -3,9 +3,3 @@ export enum ListenedTerm {
 	MEDIUM = 'medium_term',
 	LONG = 'long_term',
 }
-
-export enum ViewRange {
-	SHORT = 'short',
-	MEDIUM = 'medium',
-	LONG = 'long',
-}
