@@ -1,4 +1,4 @@
-export interface RequestSuccessDTO {
+export type RequestSuccessDTO = {
 	access_token: string
 	token_type: string
 	expires_in: number
@@ -6,7 +6,7 @@ export interface RequestSuccessDTO {
 	scope: string
 }
 
-export interface RequestFailureDTO {
+export type RequestFailureDTO = {
 	error: string
 	error_description: string
 }
